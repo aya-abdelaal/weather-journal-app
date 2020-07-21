@@ -1,0 +1,100 @@
+//reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html{
+    font-size: 62.5%;
+    //TODO: remove and place bg image
+    background: rgb(97, 180, 248);
+}
+
+//media queries
+$tablet: 481px;
+$laptop: 769px;
+$desktop: 1025px;
+$large-screen: 1201px;
+@mixin media($width) {
+    @media screen and (min-width: $width){
+        @content;
+    }
+}
+
+
+//header
+h1{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+//main section
+main{
+    width: 90vw;
+    margin: 10rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+
+    h2{
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+
+//new entry form
+form{
+    width: 90%;
+    margin: auto;
+
+    label{
+        width: 100%;
+        font-size: 1.5rem;
+        display: block;
+        padding: 1rem;
+    }
+
+    input,
+    textarea{
+        width: 95%;
+        border: 2px solid blue;
+        margin: 1rem auto;
+        padding: 1.2rem;
+    }
+
+    textarea{
+        height: 20vh;
+    }
+
+    #location-btn{
+        margin: 1rem auto;
+        background: white;
+        color: blue;
+        text-decoration: underline;
+        border: none;
+        display: block;
+    }
+}
+
+    #generate,
+    #all-entries{
+        margin: 1rem auto;
+        display: block;
+        color: blue;
+        border: 2px solid blue;
+        padding: 1rem;
+        font-size: 1.5rem;
+        background-color: white;
+        border-radius: 10px;
+    }
+    #generate:hover,
+    #all-entries:hover{
+        background-color: blue;
+        color: white;
+    }
