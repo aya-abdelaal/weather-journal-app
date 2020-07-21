@@ -37,7 +37,7 @@ const getWeather = async (zip, countryCode) => {
     const response = await getData(base + zip + "," + countryCode + key);
     let weatherData = {
         temp: response.main.temp,
-        icon: response.weather.icon,
+        icon: response.weather[0].icon,
     };
     return weatherData;
 };
@@ -75,7 +75,9 @@ function submitEntry() {
             document.getElementById("date").innerText = data.date;
             document.getElementById("temp").innerText = data.temp;
             document.getElementById("content").innerText = data.feelings;
-            //TODO: check and add src for images from icon
+            let icon = document.getElementById("icon");
+            icon.src = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
+            icon.style.display = "block";
         }
     });
 }
@@ -83,9 +85,6 @@ function submitEntry() {
 
 //execution (event listeners)
 document.addEventListener("DOMContentLoaded", () =>{
-
-    //generate location automatically using geolocation
-    document.getElementById("locationBtn").addEventListener("click", generateLocation());
 
     //generate new entry when form submitted 
     document.getElementById("generate").addEventListener("click", (event) => {
