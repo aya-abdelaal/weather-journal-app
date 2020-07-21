@@ -72,16 +72,14 @@ form{
         height: 20vh;
     }
 
-    #location-btn{
-        margin: 1rem auto;
-        background: white;
-        color: blue;
-        text-decoration: underline;
-        border: none;
+    a{
         display: block;
+        margin: 1rem auto;
     }
+
 }
 
+    //buttons
     #generate,
     #all-entries{
         margin: 1rem auto;
@@ -98,3 +96,63 @@ form{
         background-color: blue;
         color: white;
     }
+
+
+//latest entry
+#entryHolder,
+.entryContainer {
+    margin: 1.5rem;
+    box-shadow: 0 0 7px rgba(0,0,0,0.3);
+    display: none;
+    align-items: stretch;
+    flex-wrap: wrap;
+    border-radius: 15px;
+}
+
+#entryHolder {
+    h2{
+        width: 100%;
+    }
+}
+
+#date,
+.entryDate {
+    display: inline-block;
+    padding: 1rem;
+    font-size: 1.5rem;
+    width: 50%;
+    height: 100px;
+    border: 2px solid blue;
+    justify-content: end;
+}
+
+#weather,
+.entryWeather {
+    display: inline-block;
+    padding: 1rem;
+    font-size: 1.5rem;
+    width: 50%;
+    height: 100px;
+    border: 2px solid blue;
+    border-left: none;
+    text-align: left;
+
+    img{
+        display: block;
+        height: 50px;
+        width: auto;
+        margin: 0.5rem;
+    }
+}
+
+#content,
+.entryContent {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    padding: 1rem;
+    font-size: 1.7rem;
+    border: 2px solid blue;
+    border-top: none;
+    overflow: scroll;
+}

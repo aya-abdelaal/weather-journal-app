@@ -57,13 +57,9 @@ form textarea {
   height: 20vh;
 }
 
-form #location-btn {
-  margin: 1rem auto;
-  background: white;
-  color: blue;
-  text-decoration: underline;
-  border: none;
+form a {
   display: block;
+  margin: 1rem auto;
 }
 
 #generate,
@@ -82,5 +78,68 @@ form #location-btn {
 #all-entries:hover {
   background-color: blue;
   color: white;
+}
+
+#entryHolder,
+.entryContainer {
+  margin: 1.5rem;
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+  display: none;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-radius: 15px;
+}
+
+#entryHolder h2 {
+  width: 100%;
+}
+
+#date,
+.entryDate {
+  display: inline-block;
+  padding: 1rem;
+  font-size: 1.5rem;
+  width: 50%;
+  height: 100px;
+  border: 2px solid blue;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+#weather,
+.entryWeather {
+  display: inline-block;
+  padding: 1rem;
+  font-size: 1.5rem;
+  width: 50%;
+  height: 100px;
+  border: 2px solid blue;
+  border-left: none;
+  text-align: left;
+}
+
+#weather img,
+.entryWeather img {
+  display: block;
+  height: 50px;
+  width: auto;
+  margin: 0.5rem;
+}
+
+#content,
+.entryContent {
+  display: block;
+  width: 100%;
+  max-height: 300px;
+  padding: 1rem;
+  font-size: 1.7rem;
+  border: 2px solid blue;
+  border-top: none;
+  overflow: scroll;
 }
 /*# sourceMappingURL=styles.css.map */
