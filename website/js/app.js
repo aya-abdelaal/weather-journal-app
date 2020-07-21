@@ -49,7 +49,8 @@ function submitEntry() {
     let countryCode = document.getElementById("countryCode").value;
     let feelings = document.getElementById("feelings").value;
     //TODO: check syntax for date
-    let currentDate = Date.now().toLocaleDateString();
+    const d = Date.now();
+    let currentDate = new Date(d).toDateString();
 
     //get weather data from api
     getWeather(zip,countryCode)
@@ -73,11 +74,11 @@ function submitEntry() {
         //check that data array on server side is not empty
         if (data !== null){
             document.getElementById("date").innerText = data.date;
-            document.getElementById("temp").innerText = data.temp;
+            document.getElementById("temp").innerText = `${data.temp}°F`;
             document.getElementById("content").innerText = data.feelings;
             let icon = document.getElementById("icon");
             icon.src = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
-            icon.style.display = "block";
+            document.getElementById("entryHolder").style.display = "flex";
         }
     });
 }

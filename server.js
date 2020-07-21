@@ -39,7 +39,7 @@ app.post("/addEntry", (req, res) => {
     }
     projectData.push(newData);
     console.log("POST successful", projectData);
-    //res.send("POST successful");
+    res.send(JSON.stringify(newData));
 });
 
 //GET route to get latest entry
