@@ -49,7 +49,7 @@ function submitEntry() {
     let countryCode = document.getElementById("countryCode").value;
     let feelings = document.getElementById("feelings").value;
     //TODO: check syntax for date
-    let currentDate = Date.now();
+    let currentDate = Date.now().toLocaleDateString();
 
     //get weather data from api
     getWeather(zip,countryCode)
