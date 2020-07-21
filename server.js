@@ -56,6 +56,6 @@ app.get("/getLatest", (req, res) => {
 
 //GET route to get all entries
 app.get("/all", (req,res) => {
-    console.log(projectData);
+    console.log("GET all", projectData);
     res.send(projectData);
 });

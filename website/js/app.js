@@ -25,7 +25,7 @@ const getData = async (url = "") => {
 
     try{
         const newData = await response.json();
-        console.log(newData);
+        console.log("GET successful", newData);
         return newData;
     } catch (err){
         console.log("GET error",err);
@@ -48,7 +48,6 @@ function submitEntry() {
     let zip = document.getElementById("zip").value;
     let countryCode = document.getElementById("countryCode").value;
     let feelings = document.getElementById("feelings").value;
-    //TODO: check syntax for date
     const d = Date.now();
     let currentDate = new Date(d).toDateString();
 
@@ -83,6 +82,48 @@ function submitEntry() {
     });
 }
 
+//get all entries
+const getAllEntries = async () => {
+    const response = await getData("/all");
+    console.log("Get all", response);
+    return response;
+}
+
+//hide/show all entries variables 
+let showEntriesBtn = document.getElementById("show-all-entries");
+let hideEntriesBtn = document.getElementById("hide-all-entries");
+let allEntriesContainer = document.getElementById("all-entries-container");
+
+//show all entries
+function showAllEntries() {
+    getAllEntries()
+    .then ((entries) => {
+        let fragment = new DocumentFragment();
+        for(entry of entries) {
+            let container = document.createElement("div");
+            container.classList.add("entryContainer");
+            container.innerHTML = `<div class="entryDate">${entry.date}</div>
+            <div class="entryWeather">
+                <img src="http://openweathermap.org/img/wn/${entry.icon}@2x.png" alt="weather icon" class="entryIcon">
+                <div class="entryTemp">${entry.temp}</div>
+            </div>
+            <div class="entryContent">${entry.feelings}</div>`;
+            fragment.append(container);
+        }
+        showEntriesBtn.style.display = "none";
+        allEntriesContainer.append(fragment);
+        allEntriesContainer.style.display = "block";
+        hideEntriesBtn.style.display = "block";
+    });
+}
+
+//hide all entries
+function hideAllEntries () {
+    allEntriesContainer.style.display = "none";
+    hideEntriesBtn.style.display = "none";
+    showEntriesBtn.style.display = "block";
+}
+
 
 //execution (event listeners)
 document.addEventListener("DOMContentLoaded", () =>{
@@ -94,6 +135,9 @@ document.addEventListener("DOMContentLoaded", () =>{
     });
 
     //show all entries 
-    //document.getElementById("all-entries").addEventListener("click", showAllEntries());
+    showEntriesBtn.addEventListener("click", showAllEntries);
+
+    //hide entries when shown
+    hideEntriesBtn.addEventListener("click", hideAllEntries);
 
 });

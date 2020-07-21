@@ -11,6 +11,7 @@ html{
     background: rgb(97, 180, 248);
 }
 
+//TODO: add media queries
 //media queries
 $tablet: 481px;
 $laptop: 769px;
@@ -61,18 +62,19 @@ form{
     }
 
     input,
-    textarea{
+    textarea {
         width: 95%;
         border: 2px solid blue;
         margin: 1rem auto;
         padding: 1.2rem;
     }
 
-    textarea{
+    textarea {
         height: 20vh;
     }
 
-    a{
+    a {
+        //TODO: make center
         display: block;
         margin: 1rem auto;
     }
@@ -81,7 +83,8 @@ form{
 
     //buttons
     #generate,
-    #all-entries{
+    #show-all-entries,
+    #hide-all-entries {
         margin: 1rem auto;
         display: block;
         color: blue;
@@ -92,18 +95,31 @@ form{
         border-radius: 10px;
     }
     #generate:hover,
-    #all-entries:hover{
+    #show-all-entries:hover,
+    #hide-all-entries:hover {
         background-color: blue;
         color: white;
     }
 
+    #hide-all-entries {
+        display: none;
+    }
+
 
 //latest entry
-#entryHolder,
-.entryContainer {
+#entryHolder {
     margin: 1.5rem;
     box-shadow: 0 0 7px rgba(0,0,0,0.3);
     display: none;
+    align-items: stretch;
+    flex-wrap: wrap;
+    border-radius: 15px;
+}
+
+.entryContainer {
+    margin: 1.5rem;
+    box-shadow: 0 0 7px rgba(0,0,0,0.3);
+    display: flex;
     align-items: stretch;
     flex-wrap: wrap;
     border-radius: 15px;
@@ -117,7 +133,6 @@ form{
 
 #date,
 .entryDate {
-    display: inline-block;
     padding: 1rem;
     font-size: 1.5rem;
     width: 50%;
@@ -128,16 +143,15 @@ form{
 
 #weather,
 .entryWeather {
-    display: inline-block;
     padding: 1rem;
     font-size: 1.5rem;
     width: 50%;
     height: 100px;
     border: 2px solid blue;
     border-left: none;
-    text-align: left;
+    text-align: right;
 
-    img{
+    img.entryIcon{
         display: block;
         height: 50px;
         width: auto;
