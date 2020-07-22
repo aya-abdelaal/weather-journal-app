@@ -105,7 +105,7 @@ function showAllEntries() {
             container.innerHTML = `<div class="entryDate">${entry.date}</div>
             <div class="entryWeather">
                 <img src="http://openweathermap.org/img/wn/${entry.icon}@2x.png" alt="weather icon" class="entryIcon">
-                <div class="entryTemp">${entry.temp}</div>
+                <div class="entryTemp">${entry.temp}°F</div>
             </div>
             <div class="entryContent">${entry.feelings}</div>`;
             fragment.append(container);
