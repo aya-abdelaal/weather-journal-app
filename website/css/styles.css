@@ -28,6 +28,12 @@ main {
   border-radius: 15px;
 }
 
+@media screen and (min-width: 769px) {
+  main {
+    width: 80vw;
+  }
+}
+
 main h2 {
   text-align: center;
   padding: 1rem;
@@ -59,7 +65,7 @@ form textarea {
 
 form a {
   display: block;
-  margin: 1rem auto;
+  margin: 1rem;
 }
 
 #generate,
@@ -100,7 +106,7 @@ form a {
 }
 
 .entryContainer {
-  margin: 1.5rem;
+  margin: 3rem 1.5rem 1.5rem;
   -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
           box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
   display: -webkit-box;
@@ -116,6 +122,10 @@ form a {
 
 #entryHolder h2 {
   width: 100%;
+}
+
+#all-entries-container {
+  margin-top: 4rem;
 }
 
 #date,
@@ -141,12 +151,19 @@ form a {
   text-align: right;
 }
 
-#weather img.entryIcon,
-.entryWeather img.entryIcon {
-  display: block;
+#weather .entryIcon,
+.entryWeather .entryIcon {
+  float: right;
   height: 50px;
   width: auto;
   margin: 0.5rem;
+}
+
+#weather #temp,
+#weather .entryTemp,
+.entryWeather #temp,
+.entryWeather .entryTemp {
+  clear: right;
 }
 
 #content,
