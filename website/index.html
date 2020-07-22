@@ -16,9 +16,8 @@
             <h2>New Entry</h2>
             <form>
                 <label for="zip">Zip code :</label>
-                <input id="zip" name="zipCode" type="text" placeholder="enter zip code here">
+                <input id="zip" name="zipCode" type="text" placeholder="enter zip code here" required>
 
-                <!--TODO: add pattern validation-->
                 <label for="countryCode">Country Code:</label>
                 <input id="countryCode" name="countryCode" type="text" placeholder="ex.US,EG">
 
@@ -42,6 +41,7 @@
             <div id="content" class="entryContent"></div>
         </section>
 
+        <!--show all entries-->
         <button id="show-all-entries">See all entries</button>
 
         <div id="all-entries-container"></div>
