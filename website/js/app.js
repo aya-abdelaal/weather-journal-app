@@ -1,6 +1,6 @@
 //OpenWeatherMap API key and base
 const base = "http://api.openweathermap.org/data/2.5/weather?zip="
-const key = "&appid=77b20d75a9a41af403cfd8678dbdb7fd"
+const key = "&appid=77b20d75a9a41af403cfd8678dbdb7fd&units=metric"
 
 //async post function
 const postData = async (url = "", data = {}) => {
@@ -35,7 +35,7 @@ const getData = async (url = "") => {
 //GET weather from api function
 const getWeather = async (zip, countryCode) => {
     const response = await getData(base + zip + "," + countryCode + key);
-    let weatherData = {
+    const weatherData = {
         temp: response.main.temp,
         icon: response.weather[0].icon,
     };
@@ -45,17 +45,17 @@ const getWeather = async (zip, countryCode) => {
 
 //generate new entry when form submitted
 function submitEntry() {
-    let zip = document.getElementById("zip").value;
-    let countryCode = document.getElementById("countryCode").value;
-    let feelings = document.getElementById("feelings").value;
+    const zip = document.getElementById("zip").value;
+    const countryCode = document.getElementById("countryCode").value;
+    const feelings = document.getElementById("feelings").value;
     const d = Date.now();
-    let currentDate = new Date(d).toDateString();
+    const currentDate = new Date(d).toDateString();
 
     //get weather data from api
     getWeather(zip,countryCode)
     //then construct data object and send post request
     .then((weatherData) => {
-        let data = {
+        const data = {
             temp: weatherData.temp,
             icon: weatherData.icon,
             date: currentDate,
@@ -72,10 +72,10 @@ function submitEntry() {
     .then((data) => {
         //check that data array on server side is not empty
         if (data !== null){
-            document.getElementById("date").innerText = data.date;
-            document.getElementById("temp").innerText = `${data.temp}°F`;
-            document.getElementById("content").innerText = data.feelings;
-            let icon = document.getElementById("icon");
+            document.getElementById("date").innerHTML = data.date;
+            document.getElementById("temp").innerHTML = `${data.temp}°C`;
+            document.getElementById("content").innerHTML = data.feelings;
+            const icon = document.getElementById("icon");
             icon.src = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
             document.getElementById("entryHolder").style.display = "flex";
         }
@@ -90,22 +90,22 @@ const getAllEntries = async () => {
 }
 
 //hide/show all entries variables 
-let showEntriesBtn = document.getElementById("show-all-entries");
-let hideEntriesBtn = document.getElementById("hide-all-entries");
-let allEntriesContainer = document.getElementById("all-entries-container");
+const showEntriesBtn = document.getElementById("show-all-entries");
+const hideEntriesBtn = document.getElementById("hide-all-entries");
+const allEntriesContainer = document.getElementById("all-entries-container");
 
 //show all entries
 function showAllEntries() {
     getAllEntries()
     .then ((entries) => {
-        let fragment = new DocumentFragment();
+        const fragment = new DocumentFragment();
         for(entry of entries) {
-            let container = document.createElement("div");
+            const container = document.createElement("div");
             container.classList.add("entryContainer");
             container.innerHTML = `<div class="entryDate">${entry.date}</div>
             <div class="entryWeather">
                 <img src="http://openweathermap.org/img/wn/${entry.icon}@2x.png" alt="weather icon" class="entryIcon">
-                <div class="entryTemp">${entry.temp}°F</div>
+                <div class="entryTemp">${entry.temp}°C</div>
             </div>
             <div class="entryContent">${entry.feelings}</div>`;
             fragment.append(container);
