@@ -1,0 +1,27 @@
+{
+  "name": "weather-journal-app",
+  "version": "1.0.0",
+  "description": "This weather journal app allows you to log entries using your zip and country code. It then automatically logs the current weather information in your area\r along with your entry content. The app also allows you to view all your entries.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aya-abdelaal/weather-journal-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aya-abdelaal/weather-journal-app/issues"
+  },
+  "homepage": "https://github.com/aya-abdelaal/weather-journal-app#readme"
+}
