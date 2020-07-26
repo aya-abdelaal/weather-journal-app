@@ -1,6 +1,6 @@
 //OpenWeatherMap API key and base
 const base = "http://api.openweathermap.org/data/2.5/weather?zip="
-const key = "&appid=77b20d75a9a41af403cfd8678dbdb7fd&units=metric"
+const key = "&appid=&units=metric"
 
 //async post function
 const postData = async (url = "", data = {}) => {
